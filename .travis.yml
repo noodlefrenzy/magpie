@@ -11,7 +11,7 @@ before_install:
 install:
   - conda create --yes -n test python=$TRAVIS_PYTHON_VERSION
   - source activate test
-  - conda install --yes numpy scipy pip scikit-learn pandas
+  - conda install --yes numpy scipy nltk scikit-learn pandas gensim click networkx
   - pip install setuptools
   - python setup.py install
 
