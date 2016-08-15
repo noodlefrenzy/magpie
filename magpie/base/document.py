@@ -25,7 +25,7 @@ class Document(object):
             self.filename = os.path.basename(filepath)
 
             with open(filepath, 'r') as f:
-                self.text = f.read().decode('utf-8')
+                self.text = f.read()
 
         self.wordset = self.compute_wordset()
 

@@ -83,8 +83,8 @@ def get_answers_for_doc(doc_name, data_dir, filtered_by=None):
     if not os.path.exists(filename):
         raise ValueError("Answer file " + filename + " does not exist")
 
-    with open(filename, 'rb') as f:
-        answers = {line.decode('utf-8').rstrip('\n') for line in f}
+    with open(filename, 'r') as f:
+        answers = {line.rstrip('\n') for line in f}
 
     if filtered_by:
         answers = {kw for kw in answers if kw in filtered_by}
