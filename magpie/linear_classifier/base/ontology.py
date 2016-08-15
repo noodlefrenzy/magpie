@@ -1,4 +1,4 @@
-import cPickle as pickle
+import pickle
 import collections
 import logging
 import os
@@ -102,7 +102,7 @@ class Ontology(object):
     def get_children_of_node(self, node_uri, relation):
         """ Get node_uri adjacent nodes separated by a given relation. """
         try:
-            return [v for v, e in self.graph[node_uri].iteritems()
+            return [v for v, e in self.graph[node_uri].items()
                     if e['relation'] == relation]
         except KeyError:
             return []
@@ -140,7 +140,7 @@ class Ontology(object):
                     queue.append((edge_tuple[1], distance + 1))
 
         if filtered_by:
-            distances = {k: v for k, v in distances.iteritems() if k in filtered_by}
+            distances = {k: v for k, v in distances.items() if k in filtered_by}
 
         return distances
 

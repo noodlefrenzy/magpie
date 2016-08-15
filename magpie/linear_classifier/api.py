@@ -136,7 +136,7 @@ def test(
 #             kw_vector,
 #             answers,
 #         )
-#         for k, v in metrics.iteritems():
+#         for k, v in metrics.items():
 #             metrics_agg[k].append(v)
 #
 #         if verbose:
@@ -147,7 +147,7 @@ def test(
 #         print()
 #         print("Testing finished in: {0:.2f}s".format(time.clock() - start_time))
 #
-#     return {k: np.mean(v) for k, v in metrics_agg.iteritems()}
+#     return {k: np.mean(v) for k, v in metrics_agg.items()}
 
 
 def train(

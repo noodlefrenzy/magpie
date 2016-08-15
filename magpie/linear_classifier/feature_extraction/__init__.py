@@ -40,7 +40,7 @@ def preallocate_feature_matrix(n_samples):
     :return: dictionary of numpy arrays
     """
     X = {k: np.zeros(n_samples, dtype=v)
-         for k, v in FEATURE_VECTOR.iteritems()}
+         for k, v in FEATURE_VECTOR.items()}
     X['word2vec'] = np.zeros((n_samples, EMBEDDING_SIZE), dtype='float32')
 
     return X

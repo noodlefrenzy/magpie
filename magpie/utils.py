@@ -1,6 +1,6 @@
 from __future__ import division
 
-import cPickle as pickle
+import pickle
 import os
 import random
 from collections import Counter, defaultdict
@@ -119,7 +119,7 @@ def calculate_keyword_distribution(data_dir, filtered_by=None):
     #     if parsed not in parsed_answers:
     #         histogram[0].append(ontology.graph.node[node]['canonical'])
 
-    # return sorted([(k, len(v)) for k, v in histogram.iteritems()] +
+    # return sorted([(k, len(v)) for k, v in histogram.items()] +
     #               [(0, len(ontology.graph) - len(used_keywords))])
     return histogram
 

@@ -200,7 +200,7 @@ def build_y_true(gt_answers, label_indices, min_docid):
     """
     y_true = np.zeros((len(gt_answers), len(label_indices)), dtype=np.bool_)
 
-    for doc_id, labels in gt_answers.iteritems():
+    for doc_id, labels in gt_answers.items():
         for lab in labels:
             if lab in label_indices:
                 index = label_indices[lab]
