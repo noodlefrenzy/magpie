@@ -16,7 +16,7 @@ def extract_keyword_features(kw_candidates, X, inv_index, model):
 
     :return: None, operates in place on the X matrix
     """
-    for i in xrange(len(kw_candidates)):
+    for i in range(len(kw_candidates)):
         parsed_form = kw_candidates[i].get_parsed_form()
         keyphrase = tokenize_keyword(parsed_form)
 

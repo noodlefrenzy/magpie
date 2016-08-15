@@ -109,7 +109,7 @@ def calculate_keyword_distribution(data_dir, filtered_by=None):
     counts = Counter(answers)
 
     histogram = defaultdict(list)
-    for kw, cnt in counts.iteritems():
+    for kw, cnt in counts.items():
         histogram[cnt].append(kw)
 
     # Add terms that don't occur at all in the corpus
@@ -145,7 +145,7 @@ def get_coverage_ratio_for_keyword_subset(no_of_keywords, hist=None):
     if not hist:
         hist = calculate_keyword_distribution()
 
-    hist = sorted([(k, len(v)) for k, v in hist.iteritems()])
+    hist = sorted([(k, len(v)) for k, v in hist.items()])
 
     total_shots = sum([x[0] * x[1] for x in hist])
     keywords_collected = 0
@@ -170,7 +170,7 @@ def get_top_n_keywords(n, hist=None):
     if not hist:
         hist = calculate_keyword_distribution()
 
-    kw_list = sorted([(k, v) for k, v in hist.iteritems()], reverse=True)
+    kw_list = sorted([(k, v) for k, v in hist.items()], reverse=True)
 
     answer = []
     for _count, kws in kw_list:

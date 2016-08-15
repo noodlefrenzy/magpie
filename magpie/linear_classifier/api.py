@@ -35,10 +35,10 @@ def test(
 
     :return tuple of three floats (precision, recall, f1_score)
     """
-    if type(model) in [str, unicode]:
+    if type(model) in [str]:
         model = load_from_disk(model)
 
-    if type(ontology) in [str, unicode]:
+    if type(ontology) in [str]:
         ontology = get_ontology(path=ontology, recreate=recreate_ontology)
 
     keywords = get_keywords()
@@ -64,10 +64,10 @@ def test(
 
         metrics = calculate_basic_metrics([y_pred])
 
-        for k, v in metrics.iteritems():
+        for k, v in metrics.items():
             metrics_agg[k].append(v)
 
-    return {k: np.mean(v) for k, v in metrics_agg.iteritems()}
+    return {k: np.mean(v) for k, v in metrics_agg.items()}
 
 
 # def batch_test(
@@ -232,7 +232,7 @@ def batch_train(
     model = LearningModel(global_index, word2vec_model)
     previous_best = -1
 
-    for epoch in xrange(nb_epochs):
+    for epoch in range(nb_epochs):
         doc_generator = get_documents(
             trainset_dir,
             as_generator=True,
@@ -249,7 +249,7 @@ def batch_train(
             batch_number += 1
 
             batch = []
-            for i in xrange(batch_size):
+            for i in range(batch_size):
                 try:
                     batch.append(doc_generator.next())
                 except StopIteration:
@@ -281,7 +281,7 @@ def batch_train(
             verbose=False
         )
 
-        for k, v in metrics.iteritems():
+        for k, v in metrics.items():
             print("{0}: {1}".format(k, v))
 
         if metrics['map'] > previous_best:

@@ -34,7 +34,7 @@ class Document(object):
 
     def compute_wordset(self):
         tokens = WordPunctTokenizer().tokenize(self.text)
-        lowercase = map(unicode.lower, tokens)
+        lowercase = map(str.lower, tokens)
         return set(lowercase) - {',', '.', '!', ';', ':', '-', '', None}
 
     def get_all_words(self):

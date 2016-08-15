@@ -97,7 +97,7 @@ class MarisaTrie(object):
         """ Compute another iteration of the Levenshtein distance. """
         current_row = [prev_row[0] + 1] * len(prev_row)
 
-        for i in xrange(1, len(word) + 1):
+        for i in range(1, len(word) + 1):
             indicator_fun = 0 if prefix[-1] == word[i - 1] else 1
             current_row[i] = min(
                 current_row[i - 1] + 1,
@@ -197,7 +197,7 @@ class Trie(object):
 
         # Build one row for the letter, with a column for each letter in the target
         # phrase, plus one for the empty string at column 0
-        for column in xrange(1, len(phrase) + 1):
+        for column in range(1, len(phrase) + 1):
 
             insert_cost = current_row[column - 1] + 1
             delete_cost = previous_row[column] + 1

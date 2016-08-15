@@ -70,7 +70,7 @@ def calculate_recall_for_kw_candidates(data_dir, recreate_ontology=False, verbos
             print
             print("Paper: " + doc.filename)
             print("Candidates: " + str(len(kw_candidates)))
-            print("Recall: " + unicode(recall * 100) + "%")
+            print("Recall: " + str(recall * 100) + "%")
 
         average_recall += recall
         total_kw_number += len(kw_candidates)

@@ -2,6 +2,7 @@ import os
 
 import numpy as np
 
+from functools import reduce
 from gensim.models import Word2Vec
 from sklearn.preprocessing import StandardScaler
 
@@ -72,7 +73,7 @@ def fit_scaler(data_dir, word2vec_model=WORD2VEC_MODELPATH, batch_size=1024,
     no_more_samples = False
     while not no_more_samples:
         batch = []
-        for i in xrange(batch_size):
+        for i in range(batch_size):
             try:
                 batch.append(doc_generator.next())
             except StopIteration:
@@ -86,7 +87,7 @@ def fit_scaler(data_dir, word2vec_model=WORD2VEC_MODELPATH, batch_size=1024,
                     vectors.append(word2vec_model[word])
 
         matrix = np.array(vectors)
-        print "Fitted to {} vectors".format(matrix.shape[0])
+        print("Fitted to {} vectors".format(matrix.shape[0]))
 
         scaler.partial_fit(matrix)
 
